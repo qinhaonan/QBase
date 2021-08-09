@@ -1,0 +1,80 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion var.compileSdkVersion
+    defaultConfig {
+        minSdkVersion var.minSdkVersion
+        targetSdkVersion var.targetSdkVersion
+        versionCode var.versionCode
+        versionName var.versionName
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+//        基础框架
+    api var.appcompatV7
+    api var.supportV4
+//        UI框架
+    api var.recyclerviewV7
+    api var.constraintLayout
+    api var.design
+//    Jetpack--
+    api var.lifecycles
+//    page
+    api var.paging
+    api var.rxPaging
+//    --Jatpack
+//        网络请求解析框架
+    api var.retrofit
+    api var.retrofitRxjava
+    api var.gson
+//    api var.fastJson
+//        rx系列
+    api var.rxjava
+    api var.rxandroid
+    //权限申请
+    api  var.rxPermission
+//        日志打印
+    api var.logger
+//    底部导航
+    api var.bottomNavigation
+//    数据库查看
+//    debugImplementation 'com.amitshekhar.android:debug-db:1.0.0'
+    api 'com.github.ybq:Android-SpinKit:1.2.0'
+//    arouter
+    kapt var.arouterCompile
+    api  var.arouterApi
+
+    api  var.vlayout
+//    tabLayout
+    api  var.smartTabLayout
+    api  var.smartTabLayout_utils
+//    glide
+    api var.glide
+    api var.eventbus
+    //协程
+    api var.coroutines
+    api var.mmkv
+}

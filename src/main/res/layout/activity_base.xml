@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPageBg"
+    android:orientation="vertical">
+
+    <ViewStub
+        android:id="@+id/vs_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inflatedId="@+id/toolbar"
+        android:layout="@layout/view_toolbar" />
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ViewStub
+            android:id="@+id/vs_error"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inflatedId="@+id/cl_error"
+            android:layout="@layout/view_error" />
+        <ViewStub
+            android:id="@+id/vs_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inflatedId="@+id/cl_loading"
+            android:layout="@layout/view_loading" />
+        <ViewStub
+            android:id="@+id/vs_need_login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inflatedId="@+id/cl_need_login"
+            android:layout="@layout/view_loading" />
+        <ViewStub
+            android:id="@+id/vs_no_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inflatedId="@+id/cl_no_data"
+            android:layout="@layout/view_no_data" />
+    </FrameLayout>
+</LinearLayout>
